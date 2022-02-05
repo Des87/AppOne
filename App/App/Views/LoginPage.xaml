@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="App.Views.LoginPage"
+             Shell.NavBarIsVisible="False">
+
+    <ContentPage.Content>
+            <Grid>
+               <!-- <Grid.RowDefinitions>
+                    <RowDefinition Height="1"/>
+                    <RowDefinition Height="1"/>
+                    <RowDefinition Height="1"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1"/>
+                    <ColumnDefinition Width="1"/>
+                    <ColumnDefinition Width="1"/>
+                </Grid.ColumnDefinitions>-->
+            <Image Source="LoginBackground.jpg" Aspect="Fill" Grid.ColumnSpan="8" Grid.RowSpan="16"/>
+            <Frame Grid.Column="2" Opacity="0.6" Grid.Row="3" Grid.RowSpan="7" Grid.ColumnSpan="4" CornerRadius="30" Margin="-10" BorderColor="ForestGreen"/>
+            <Frame Grid.Column="2" Opacity="0.7" Margin="-5,-5,-5,0" CornerRadius="30" Grid.ColumnSpan="4" Grid.Row="3" Grid.RowSpan="4" BorderColor="ForestGreen"/>
+            <Frame Grid.Column="2" Opacity="0.7" Margin="-5" CornerRadius="30" Grid.ColumnSpan="4" Grid.Row="7" Grid.RowSpan="3" BorderColor="ForestGreen"/>
+            <BoxView Color="Gray" CornerRadius="30" Opacity="0.7" Grid.Column="2" Grid.ColumnSpan="4" Grid.Row="7"/>
+            <Entry PlaceholderColor="Gray" Placeholder="Név" HorizontalTextAlignment="Center" Grid.Column="2" Grid.ColumnSpan="4" Grid.Row="7" Text="{Binding Name}"/>
+            <BoxView Color="Gray" CornerRadius="30" Opacity="0.7" Grid.Column="2" Grid.ColumnSpan="4" Grid.Row="8"/>
+            <Entry PlaceholderColor="Gray" Placeholder="Jelszó" IsPassword="True" HorizontalTextAlignment="Center"  Grid.Column="2" Grid.ColumnSpan="4" Grid.Row="8" Text="{Binding Password}"/>
+            <Button Text="Login" CornerRadius="30" Opacity="0.8" Grid.Column="2" Grid.ColumnSpan="4" Grid.Row="9" Command="{Binding LoginCommand}"/>
+            </Grid>
+    </ContentPage.Content>
+</ContentPage>
