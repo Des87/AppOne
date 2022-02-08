@@ -3,12 +3,49 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"  
              mc:Ignorable="d"
              x:Class="App.Views.LoginPage"
              Shell.NavBarIsVisible="False">
 
     <ContentPage.Content>
             <Grid>
+            <xct:MediaElement x:Name="BgVideo" Source="ms-appx:///event.mp4" ShowsPlaybackControls="False"
+                                  IsLooping="True" Aspect="AspectFill" AutoPlay="True"
+                                  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            <BoxView>
+                <BoxView.Background>
+                    <LinearGradientBrush StartPoint="2,0" EndPoint="1,1">
+                        <GradientStop Color="Transparent" Offset="0"/>
+                        <GradientStop Color="#2E4159" Offset="0.9"/>
+                        <GradientStop Color="#2E4159" Offset="1"/>
+                    </LinearGradientBrush>
+                </BoxView.Background>
+            </BoxView>
+            <Grid RowDefinitions="Auto,Auto,Auto" HeightRequest="280" Margin="30,30,30,100" RowSpacing="40" VerticalOptions="End">
+                <CarouselView x:Name="cvOnboarding" IndicatorView="landingIndicator"
+                               ItemsSource="{Binding Onboardings}" VerticalOptions="End">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Spacing="10">
+                                <Label Text="{Binding Heading}" TextColor="White" FontSize="26" FontAttributes="Bold"
+                                       WidthRequest="220" HorizontalOptions="Start"/>
+                                <Label Text="{Binding Caption}" TextColor="White" FontSize="24" FontAttributes="Bold"
+                                       WidthRequest="250" HorizontalOptions="Start"/>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+                <IndicatorView x:Name="landingIndicator" Grid.Row="1" IndicatorsShape="Circle"
+                               IndicatorColor="#888888" SelectedIndicatorColor="#e7305e"/>
+                <StackLayout Grid.Row="2" Orientation="Horizontal" Spacing="20" VerticalOptions="End">
+                    <Button Text="Jelentkezz be" HeightRequest="50" WidthRequest="145" BackgroundColor="#e7305e" 
+                            TextColor="White" CornerRadius="25" FontAttributes="Bold"/>
+                    <Button Text="Regisztrálj" HeightRequest="50" WidthRequest="145" BackgroundColor="white" 
+                            TextColor="#2E4159" CornerRadius="25" FontAttributes="Bold"/>
+                </StackLayout>
+            </Grid>
+        </Grid>
                <!-- <Grid.RowDefinitions>
                     <RowDefinition Height="1"/>
                     <RowDefinition Height="1"/>
@@ -18,7 +55,7 @@
                     <ColumnDefinition Width="1"/>
                     <ColumnDefinition Width="1"/>
                     <ColumnDefinition Width="1"/>
-                </Grid.ColumnDefinitions>-->
+                </Grid.ColumnDefinitions>
             <Image Source="LoginBackground.jpg" Aspect="Fill" Grid.ColumnSpan="8" Grid.RowSpan="16"/>
             <Frame Grid.Column="2" Opacity="0.6" Grid.Row="3" Grid.RowSpan="7" Grid.ColumnSpan="4" CornerRadius="30" Margin="-10" BorderColor="ForestGreen"/>
             <Frame Grid.Column="2" Opacity="0.7" Margin="-5,-5,-5,0" CornerRadius="30" Grid.ColumnSpan="4" Grid.Row="3" Grid.RowSpan="4" BorderColor="ForestGreen"/>
@@ -28,6 +65,6 @@
             <BoxView Color="Gray" CornerRadius="30" Opacity="0.7" Grid.Column="2" Grid.ColumnSpan="4" Grid.Row="8"/>
             <Entry PlaceholderColor="Gray" Placeholder="Jelszó" IsPassword="True" HorizontalTextAlignment="Center"  Grid.Column="2" Grid.ColumnSpan="4" Grid.Row="8" Text="{Binding Password}"/>
             <Button Text="Login" CornerRadius="30" Opacity="0.8" Grid.Column="2" Grid.ColumnSpan="4" Grid.Row="9" Command="{Binding LoginCommand}"/>
-            </Grid>
+            </Grid>-->
     </ContentPage.Content>
 </ContentPage>

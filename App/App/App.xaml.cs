@@ -3,6 +3,7 @@ using App.Views;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.CommunityToolkit;
 
 namespace App
 {
@@ -12,8 +13,7 @@ namespace App
         public App()
         {
             InitializeComponent();
-
-            DependencyService.Register<MockDataStore>();
+           // Device.SetFlages( new[] { "MediaElement_Experimental", "Brush_Experimental" });
             MainPage = new AppShell();
         }
 
